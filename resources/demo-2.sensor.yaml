@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
-  name: demo-2
+  name: demo-two
   namespace: local-cf-8
 spec:
   eventBusName: codefresh-eventbus
