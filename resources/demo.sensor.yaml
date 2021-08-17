@@ -64,3 +64,20 @@ spec:
               spec:
                 workflowTemplateRef:
                   name: whalesay
+    - template:
+        name: trigger-4
+        conditions: git-push-2
+        argoWorkflow:
+          group: argoproj.io
+          version: v1alpha1
+          resource: workflows
+          operation: submit
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: Workflow
+              metadata:
+                name: submit
+              spec:
+                workflowTemplateRef:
+                  name: whalesay
