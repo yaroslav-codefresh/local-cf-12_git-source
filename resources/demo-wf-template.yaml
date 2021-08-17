@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  creationTimestamp: null
+  name: demo-workflow-template
+  namespace: local-cf-8
+spec:
+  arguments: {}
+  entrypoint: whalesay
+  templates:
+  - container:
+      args:
+      - Hello World
+      command:
+      - cowsay
+      image: docker/whalesay
+      name: ""
+      resources: {}
+    inputs: {}
+    metadata: {}
+    name: whalesay
+    outputs: {}
