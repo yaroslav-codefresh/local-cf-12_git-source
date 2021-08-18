@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: whalesay-another
+  namespace: local-cf-7
+spec:
+  entrypoint: whalesay
+  templates:
+  - name: whalesay
+    container:
+      args:
+        - Hello World
+      command:
+        - cowsay
+      image: docker/whalesay

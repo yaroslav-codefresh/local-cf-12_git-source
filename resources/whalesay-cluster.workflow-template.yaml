@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: whalesay-cluster
+  namespace: local-cf-7
+spec:
+  entrypoint: whalesay
+  templates:
+  - name: main
+    steps:
+      - - name: whalesay
+          template: whalesay
+      - - name: exec-whalesay-another
+          templateRef:
+            name: whalesay-another
+            template: main
+
+  - name: whalesay
+    container:
+      image: docker/whalesay
+      command:
+        - cowsay
+      args:
+        - Hello World
