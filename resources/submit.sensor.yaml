@@ -17,7 +17,7 @@ spec:
   triggers:
     - template:
         conditions: "git-push"
-        name: argo-workflow-trigger-namespace
+        name: trigger-namespace
         argoWorkflow:
           group: argoproj.io
           version: v1alpha1
@@ -35,7 +35,7 @@ spec:
                   name: whalesay
     - template:
         conditions: "git-push"
-        name: argo-workflow-trigger-default
+        name: trigger-cluster
         argoWorkflow:
           group: argoproj.io
           version: v1alpha1
