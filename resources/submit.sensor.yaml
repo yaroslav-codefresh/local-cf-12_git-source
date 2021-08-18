@@ -4,6 +4,8 @@ metadata:
   name: submit
   namespace: local-cf-8
 spec:
+  template:
+    serviceAccountName: operate-workflow-sa
   eventBusName: codefresh-eventbus
   dependencies:
     - name: git-push
