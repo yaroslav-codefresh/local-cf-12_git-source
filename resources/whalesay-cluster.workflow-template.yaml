@@ -4,7 +4,7 @@ metadata:
   name: whalesay-cluster
   namespace: local-cf-8
 spec:
-  entrypoint: whalesay
+  entrypoint: main
   templates:
   - name: main
     steps:
