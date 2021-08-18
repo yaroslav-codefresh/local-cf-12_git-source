@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
   name: submit
-  namespace: local-cf-7
+  namespace: local-cf-8
 spec:
   eventBusName: codefresh-eventbus
   dependencies:

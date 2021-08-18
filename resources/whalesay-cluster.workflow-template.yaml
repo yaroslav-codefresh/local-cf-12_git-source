@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ClusterWorkflowTemplate
 metadata:
   name: whalesay-cluster
-  namespace: local-cf-7
+  namespace: local-cf-8
 spec:
   entrypoint: whalesay
   templates:
