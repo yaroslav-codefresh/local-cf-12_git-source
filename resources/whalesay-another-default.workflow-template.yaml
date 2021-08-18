@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: whalesay-another
+  namespace: default
+spec:
+  entrypoint: main
+  templates:
+  - name: main
+    dag:
+      tasks:
+        - name: exec-whalesay-another-another
+          templateRef:
+            name: whalesay-another-another
+            template: whalesay
+
+  - name: whalesay
+    container:
+      args:
+      - Hello World
+      command:
+      - cowsay
+      image: docker/whalesay
