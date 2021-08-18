@@ -5,7 +5,7 @@ metadata:
   namespace: local-cf-8
 spec:
   template:
-    serviceAccountName: operate-workflow-sa
+    serviceAccountName: codefresh-sa
   eventBusName: codefresh-eventbus
   dependencies:
     - name: git-push
