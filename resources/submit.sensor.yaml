@@ -51,4 +51,4 @@ spec:
               spec:
 #                entrypoint: whalesay
                 workflowTemplateRef:
-                  name: whalesay
+                  name: whalesay-another
