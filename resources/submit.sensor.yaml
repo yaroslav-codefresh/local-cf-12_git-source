@@ -28,7 +28,7 @@ spec:
               apiVersion: argoproj.io/v1alpha1
               kind: Workflow
               metadata:
-                name: submit
+                generateName: submit-
               spec:
 #                entrypoint: whalesay
                 workflowTemplateRef:
@@ -47,7 +47,7 @@ spec:
               kind: Workflow
               metadata:
                 namespace: default
-                name: submit
+                generateName: submit-
               spec:
 #                entrypoint: whalesay
                 workflowTemplateRef:
