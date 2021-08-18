@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
   name: submit
-  namespace: local-cf-8
+  namespace: local-cf-9
 spec:
   template:
     serviceAccountName: argo-server
@@ -31,7 +31,7 @@ spec:
                 generateName: submit-namespaced-
               spec:
                 workflowTemplateRef:
-                  # using template from sensor's namespace local-cf-8
+                  # using template from sensor's namespace local-cf-9
                   name: whalesay
     - template:
         conditions: "git-push"
