@@ -17,7 +17,7 @@ spec:
   triggers:
     - template:
         conditions: "git-push"
-        name: argo-workflow-trigger
+        name: argo-workflow-trigger-namespace
         argoWorkflow:
           group: argoproj.io
           version: v1alpha1
@@ -28,6 +28,25 @@ spec:
               apiVersion: argoproj.io/v1alpha1
               kind: Workflow
               metadata:
+                name: submit
+              spec:
+#                entrypoint: whalesay
+                workflowTemplateRef:
+                  name: whalesay
+    - template:
+        conditions: "git-push"
+        name: argo-workflow-trigger-default
+        argoWorkflow:
+          group: argoproj.io
+          version: v1alpha1
+          resource: workflows
+          operation: submit
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: Workflow
+              metadata:
+                namespace: default
                 name: submit
               spec:
 #                entrypoint: whalesay
