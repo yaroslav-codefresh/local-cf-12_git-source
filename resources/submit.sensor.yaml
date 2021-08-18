@@ -15,24 +15,24 @@ spec:
       eventSourceName: github-another
       eventName: push
   triggers:
-#    - template:
-#        conditions: "git-push"
-#        name: argo-workflow-trigger-namespace
-#        argoWorkflow:
-#          group: argoproj.io
-#          version: v1alpha1
-#          resource: workflows
-#          operation: submit
-#          source:
-#            resource:
-#              apiVersion: argoproj.io/v1alpha1
-#              kind: Workflow
-#              metadata:
-#                generateName: submit-
-#              spec:
-##                entrypoint: whalesay
-#                workflowTemplateRef:
-#                  name: whalesay
+    - template:
+        conditions: "git-push"
+        name: argo-workflow-trigger-namespace
+        argoWorkflow:
+          group: argoproj.io
+          version: v1alpha1
+          resource: workflows
+          operation: submit
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: Workflow
+              metadata:
+                generateName: submit-namespaced-
+              spec:
+                workflowTemplateRef:
+                  # using template from sensor's namespace local-cf-8
+                  name: whalesay
     - template:
         conditions: "git-push"
         name: argo-workflow-trigger-default
@@ -46,9 +46,7 @@ spec:
               apiVersion: argoproj.io/v1alpha1
               kind: Workflow
               metadata:
-                namespace: default
-                generateName: submit-
+                generateName: submit-cluster-
               spec:
-#                entrypoint: whalesay
                 workflowTemplateRef:
-                  name: whalesay-another
+                  name: whalesay-cluster
