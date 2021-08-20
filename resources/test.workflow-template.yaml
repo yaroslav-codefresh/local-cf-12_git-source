@@ -1,0 +1,50 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: test
+spec:
+  entrypoint: steps1
+  templates:
+  - name: steps1
+    steps:
+      - - name: exec-steps2
+          template: steps2
+
+        - name: echo-steps1
+          template: echo
+          arguments:
+            parameters:
+              - name: message
+                value: steps1
+
+      - - name: exec-whalesay
+          templateRef:
+            name: whalesay
+            template: whalesay
+
+  - name: steps2
+    steps:
+      - - name: echo-steps2-1
+          template: echo
+          arguments:
+            parameters:
+              - name: message
+                value: steps2-1
+      - - name: echo-steps2-2
+          template: echo
+          arguments:
+            parameters:
+              - name: message
+                value: steps2-2
+
+  - name: echo
+    inputs:
+      parameters:
+        - name: message
+    container:
+      image: alpine
+      command:
+        - echo
+        - "{{inputs.parameters.message}}"
+
+
