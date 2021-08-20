@@ -1,1 +1,1 @@
-export NAMESPACE="local-cf-11"
+export NAMESPACE="local-cf-12"
