@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
   name: demo-four
-  namespace: local-cf-10
 spec:
   eventBusName: codefresh-eventbus
   dependencies:

@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
   name: demo-workflow-template
-  namespace: local-cf-10
 spec:
   entrypoint: steps1
   templates:
