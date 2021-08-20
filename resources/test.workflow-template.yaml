@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: test
+spec:
+  entrypoint: echo
+  templates:
+  - name: echo
+    container:
+      image: alpine
+      command:
+        - echo
+        - "test"
+
+
